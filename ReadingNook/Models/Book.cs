@@ -8,8 +8,8 @@ namespace ReadingNook.Models
     {
       this.AuthorBookJoinEntities = new HashSet<AuthorBook>();
       this.BookGenreJoinEntities = new HashSet<BookGenre>();
-      this.BookSubGenreJoinEntities = new HashSet<BookGenre>();
-      this.BookReadlist = new HashSet<BookReadlist>();
+      this.BookSubgenreJoinEntities = new HashSet<BookSubgenre>();
+      this.BookReadlistJoinEntities = new HashSet<BookReadlist>();
     }
 
     public int BookId { get; set;}

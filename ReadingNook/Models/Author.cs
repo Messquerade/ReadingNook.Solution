@@ -8,7 +8,7 @@ namespace ReadingNook.Models
     {
       this.AuthorBookJoinEntities = new HashSet<AuthorBook>();
       this.AuthorGenreJoinEntities = new HashSet<AuthorGenre>();
-      this.AuthorSubGenreJoinEntities = new HashSet<AuthorGenre>();
+      this.AuthorSubgenreJoinEntities = new HashSet<AuthorSubgenre>();
     }
 
     public int AuthorId { get; set;}
