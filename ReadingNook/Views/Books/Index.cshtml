@@ -1,0 +1,20 @@
+@{
+  Layout ="_Layout";
+}
+
+@using ReadingNook.Models
+
+<h1>Books</h1>
+
+@if(Model.Count == 0)
+{
+  <h3>You have no current books</h3>
+}
+
+@foreach (Book book in Model)
+{
+  <p>@Html.ActionLink($"{book.Title}", "Details", new {id = book.BookId})</p>
+}
+
+@Html.ActionLink("Add a New Book", "Create")
+
