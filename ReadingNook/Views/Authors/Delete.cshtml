@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ReadingNook.Models.Author
+
+<h2>Are you sure you would like to delete @Model.Name?</h2>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Confirm"/>
+}

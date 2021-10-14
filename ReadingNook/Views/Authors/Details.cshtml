@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ReadingNook.Models.Author
+
+<h1>@Model.Name</h1>
+
+<h3>Year Born: @Model.DOB</h3>
+<h3>@Model.Description</h3>
+
+@if(@Model.AuthorBookJoinEntities.Count == 0)
+{
+  <p>This author has no current books</p>
+}
+else
+{
+  <h3>Books: </h3>
+    <ul>
+    @foreach(var join in Model.AuthorBookJoinEntities)
+    {
+      <li>@join.Book.Title</li>
+    }
+    </ul>
+}
+
+
+
+<p>@Html.ActionLink("Edit Author", "Edit", new { id = Model.AuthorId})</p>
+<p>@Html.ActionLink("Delete Author", "Delete", new { id = Model.AuthorId})</p>
