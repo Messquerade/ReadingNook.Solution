@@ -8,17 +8,19 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Title)
-  @Html.TextBoxFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title) <br>
   @Html.LabelFor(model => model.Series)
-  @Html.TextBoxFor(model => model.Series)
+  @Html.TextBoxFor(model => model.Series) <br>
+  @Html.LabelFor(model => model.Description) <br>
+  @Html.TextAreaFor(model => model.Description, 5, 50, null) <br>
   @Html.LabelFor(model => model.Length)
-  @Html.TextBoxFor(model => model.Length, new { type = "number", min = "1", step = "1"})
+  @Html.TextBoxFor(model => model.Length, new { type = "number", min = "1", step = "1"}) <br>
   @Html.LabelFor(model => model.Publication)
-  @Html.TextBoxFor(model => model.Publication, new { type = "number", min = "0", step = "1" })
-  @Html.LabelFor(model => model.Tags)
-  @Html.TextBoxFor(model => model.Tags)
+  @Html.TextBoxFor(model => model.Publication, new { type = "number", min = "0", step = "1" }) <br>
+  @Html.LabelFor(model => model.Tags) <br>
+  @Html.TextAreaFor(model => model.Tags, 5, 50, null) <br>
   @Html.LabelFor(model => model.Read)
-  @Html.CheckBoxFor(model => model.Read)
+  @Html.CheckBoxFor(model => model.Read) <br>
 
   <input type="submit" value="Add Book"/>
 

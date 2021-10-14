@@ -33,5 +33,20 @@ namespace ReadingNook.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      var thisBook = _db.Books
+        .Include(book => book.AuthorBookJoinEntities)
+        .ThenInclude(join => join.Author)
+        .Include(book => book.BookReadlistJoinEntities)
+        .ThenInclude(join => join.Readlist)
+        .Include(book => book.BookGenreJoinEntities)
+        .ThenInclude(join => join.Genre)
+        .Include(book => book.BookSubgenreJoinEntities)
+        .ThenInclude(join => join.Subgenre)
+        .FirstOrDefault(book => book.BookId == id);
+      return View(thisBook);
+    }
   }
 }
