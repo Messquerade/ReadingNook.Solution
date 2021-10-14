@@ -37,6 +37,7 @@ namespace ReadingNook.Controllers
 
     public ActionResult Details(int id)
     { 
+
       ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
       var thisBook = _db.Books
         .Include(book => book.AuthorBookJoinEntities)
@@ -97,7 +98,7 @@ namespace ReadingNook.Controllers
     [HttpPost]
     public ActionResult AddAuthor(Book book, int AuthorId)
     {
-      if (AuthorId != 0)
+      if (AuthorId != 0 && !_db.AuthorBook.Any(model => model.BookId == book.BookId && model.AuthorId == AuthorId))
       {
         _db.AuthorBook.Add(new AuthorBook() {AuthorId = AuthorId, BookId = book.BookId});
       }
