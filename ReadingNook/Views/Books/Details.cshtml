@@ -34,5 +34,16 @@ else
   }
 </h3>
 
+<h4>Add an Author to @Model.Title</h4>
+@using (Html.BeginForm("AddAuthor", "Books"))
+{
+  @Html.HiddenFor(model => model.BookId)
+
+  @Html.Label("Choose an Author")
+  @Html.DropDownList("AuthorId")
+
+  <input type="submit" value="Add Author"/>
+}
+
 <p>@Html.ActionLink("Edit Book", "Edit", new { id = Model.BookId})</p>
 <p>@Html.ActionLink("Delete Book", "Delete", new { id = Model.BookId})</p>
