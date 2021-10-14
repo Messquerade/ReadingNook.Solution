@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using ReadingNook.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace ReadingNook.Controllers
 {
@@ -77,6 +78,22 @@ namespace ReadingNook.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult ChooseRandom()
+    {
+      Random rand = new Random();
+      List<Book> books = _db.Books.ToList();
+      List<int> bookIds = new List<int>();
+      foreach(Book book in books)
+      {
+        bookIds.Add(book.BookId);
+      }
+      int randomIndex = rand.Next(0, bookIds.Count);
+      int randomId = bookIds[randomIndex];
+      return RedirectToAction("Details", new { id = randomId});
+    }
+
+
 
 
   }

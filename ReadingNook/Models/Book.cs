@@ -24,5 +24,7 @@ namespace ReadingNook.Models
     public virtual ICollection <BookGenre> BookGenreJoinEntities { get; set;}
     public virtual ICollection <BookSubgenre> BookSubgenreJoinEntities { get; set;}
     public virtual ICollection <BookReadlist> BookReadlistJoinEntities { get; set;}
+
+    
   }
 }
