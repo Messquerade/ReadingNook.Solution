@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ReadingNook.Models.Book
+
+<h1>Edit @Model.Title</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.BookId)
+
+  @Html.LabelFor(model => model.Title)
+  @Html.EditorFor(model => model.Title) <br>
+  @Html.LabelFor(model => model.Series)
+  @Html.EditorFor(model => model.Series) <br>
+  @Html.LabelFor(model => model.Description) <br>
+  @Html.EditorFor(model => model.Description, new { htmlAttributes = new { style = "width: 50; height: 5;"}}) <br>
+  @Html.LabelFor(model => model.Length)
+  @Html.EditorFor(model => model.Length, new { type = "number", min = "1", step = "1"}) <br>
+  @Html.LabelFor(model => model.Publication)
+  @Html.EditorFor(model => model.Publication, new { type = "number", min = "0", step = "1" }) <br>
+  @Html.LabelFor(model => model.Tags) <br>
+  @Html.EditorFor(model => model.Tags) <br>
+  @Html.LabelFor(model => model.Read)
+  @Html.CheckBoxFor(model => model.Read) <br>
+
+  <input type="submit" value="Edit Book"/>
+}

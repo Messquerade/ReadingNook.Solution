@@ -48,5 +48,21 @@ namespace ReadingNook.Controllers
         .FirstOrDefault(book => book.BookId == id);
       return View(thisBook);
     }
+
+    public ActionResult Edit(int id)
+    {
+      var thisBook = _db.Books.FirstOrDefault(book => book.BookId == id);
+      return View(thisBook);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Book book)
+    {
+      _db.Entry(book).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = book.BookId});
+    }
+
+
   }
 }
